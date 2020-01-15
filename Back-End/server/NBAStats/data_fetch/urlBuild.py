@@ -1,4 +1,4 @@
-def buildURL(dataType, season="2018-19", conference=None, measureType="Base", perMode="Per100Possessions"):
+def buildURL(dataType, season="2018-19", conference=None, measureType="Base", perMode="Totals"):
     if(dataType == "player"): 
         print("Not completed yet")
     elif(dataType == "league"): 
@@ -13,5 +13,5 @@ def buildURL(dataType, season="2018-19", conference=None, measureType="Base", pe
         URL+=perMode
         URL+= "&Period=0&PlayerExperience=&PlayerPosition=&PlusMinus=N&Rank=N&Season="
         URL+=season
-        URL+="&SeasonSegment=&SeasonType=Playoffs&ShotClockRange=&StarterBench=&TeamID=0&TwoWay=0&VsConference=&VsDivision=&Weight="
+        URL+="&SeasonSegment=&SeasonType=Regular+Season&ShotClockRange=&StarterBench=&TeamID=0&TwoWay=0&VsConference=&VsDivision=&Weight="
         return URL
