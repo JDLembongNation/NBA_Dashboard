@@ -7,10 +7,13 @@ import time
 def createPlayerData(): 
     pass
     
-def getPlayerData(): 
+def getPlayerData(PlayerID):
+    content = getAllData()
+    
+
+def getAllData(): 
     with open("./NBAStats/data_fetch/data/player_data.json", "r") as player_data:
-        contents = player_data.read()
-        return contents
+        return json.loads(player_data)
 
 def updatePlayerData(playerList): 
     with open("./NBAStats/data_fetch/data/player_data.json", "w+") as player_data:

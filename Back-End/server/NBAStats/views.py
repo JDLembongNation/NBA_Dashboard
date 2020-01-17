@@ -6,6 +6,6 @@ from .data_fetch import league
 
 # Create your views here.
 
-def index(request): 
+def leagueData(request): 
     return HttpResponse(league.getLeagueData(), content_type="application/json")
 
