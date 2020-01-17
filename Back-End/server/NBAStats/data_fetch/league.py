@@ -8,9 +8,7 @@ def getLeagueData(MeasureType="base", PerMode=None, Season="2019-20"):
     URL = urlBuild.buildURL("league")
     print(URL)
     response = requests.get(URL)
-    #Change below condition to every 24 hours.
-    if(True):
-        processPlayerInformation(response.text)
+    processPlayerInformation(response.text)
     return response.text
  
 def processPlayerInformation(response): 

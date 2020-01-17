@@ -3,6 +3,7 @@ from django.http import HttpResponse
 import json
 from .data_fetch import players
 from .data_fetch import league 
+from .data_fetch import teams
 
 # Create your views here.
 
@@ -11,4 +12,7 @@ def leagueData(request):
 
 def playerData(request, playerID): 
     return HttpResponse(players.getPlayerData(playerID), content_type="application/json")
+
+def recentScoreData(request, day, month, year):
+    return HttpResponse(teams.getRecentGames(day, month, year), content_type="application/json")
 
