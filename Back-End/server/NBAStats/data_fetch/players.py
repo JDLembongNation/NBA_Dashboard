@@ -9,11 +9,19 @@ def createPlayerData():
     
 def getPlayerData(PlayerID):
     content = getAllData()
-    
+    playerList = content["data"]
+    for x in range(len(playerList)): 
+        if int(playerList[x]["PLAYER_ID"]) == PlayerID:
+            print(playerList[x])
+            data = json.dumps(playerList[x])
+            return data
 
 def getAllData(): 
-    with open("./NBAStats/data_fetch/data/player_data.json", "r") as player_data:
-        return json.loads(player_data)
+    json_file = open('./NBAStats/data_fetch/data/player_data.json')
+    json_string = json_file.read()
+    json_data = json.loads(json_string)
+    json_file.close()
+    return json_data
 
 def updatePlayerData(playerList): 
     with open("./NBAStats/data_fetch/data/player_data.json", "w+") as player_data:
@@ -23,7 +31,7 @@ def updatePlayerData(playerList):
             dataObject["data"] = playerList
             json.dump(dataObject, player_data)
         else:
-            data = json.loads(player_data)
+            data = json.loads("./NBAStats/data_fetch/data/player_data.json")
             previousTime = int(data["timeUpdated"])
             currentTime = int(time.time())
             if (currentTime-previousTime) > (24*3600):

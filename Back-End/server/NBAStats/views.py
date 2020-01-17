@@ -9,3 +9,6 @@ from .data_fetch import league
 def leagueData(request): 
     return HttpResponse(league.getLeagueData(), content_type="application/json")
 
+def playerData(request, playerID): 
+    return HttpResponse(players.getPlayerData(playerID), content_type="application/json")
+
