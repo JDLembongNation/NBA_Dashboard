@@ -20,6 +20,7 @@ def processPlayerInformation(response):
         data = {}
         for attribute in range(len(responseObject.get("resultSets")[0].get("headers"))):
             data[responseObject.get("resultSets")[0].get("headers")[attribute]] = str(responseObject.get("resultSets")[0].get("rowSet")[player][attribute])
+        data["profileimg"] = "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/"+str(responseObject.get("resultSets")[0].get("rowSet")[player][0])+".png"
         playerList.append(data)
     players.updatePlayerData(playerList)
     
