@@ -15,7 +15,7 @@ def getTeamVSHistory():
 def getRecentGames(day, month, year): 
     URL = urlBuild.buildGamesURL(day, month, year)
     print(URL)
-    response = requests.get(URL)
+    response = requests.get(URL, verify=True)
     #Add to GameData here. 
-    print(response)
+    print(response.reason)
     return response
